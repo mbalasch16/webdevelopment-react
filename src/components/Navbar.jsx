@@ -22,10 +22,24 @@ export default function Navbar() {
           </div>
 
           <button className="md:hidden p-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuIsOpen((prev) => !prev)}>
+            {mobileMenuIsOpen ? ( 
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
+             ) : (
+
             <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+            )}
           </button>
+          
         </div>
       </div>
+      {mobileMenuIsOpen && 
+      <div className="md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-slate-800">
+        <div>
+          <a href="#features" className="text-gray-200 hover:text-white text-sm lg:text-base">Features</a>
+            <a href="#pricing" className="text-gray-200 hover:text-white text-sm lg:text-base">Pricing</a>
+            <a href="#testimonials" className="text-gray-200 hover:text-white text-sm lg:text-base">Testimonials</a>
+        </div>
+        </div>}
     </nav>
   );
 }
